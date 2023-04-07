@@ -1,6 +1,6 @@
 ---
 title: 'Scope Functions in Kotlin (With Examples)'
-excerpt: 'I wanted to get better at knowing how to use scope functions, so I wrote this post.'
+excerpt: 'How to use let / with / run / apply / also'
 coverImage: ''
 date: '2023-04-07'
 author:
@@ -9,8 +9,6 @@ author:
 ogImage:
   url: ''
 ---
-
-I wanted to get better at knowing how to use scope functions, so I wrote this post.
 
 ## What are scope functions?
 
@@ -63,7 +61,7 @@ Firstly,  it is NOT an extension function - meaning we pass the object INTO `wit
 ```
   val aggregate = repository.load(command.id)
   with(aggregate){
-    // access the result of repository.load via this OR it
+    // ...
   }
 ```
 Secondly, we can access functions on the aggregate directly, ie;
@@ -125,7 +123,7 @@ Similar to `apply` however, it returns the updated object, not the result of the
   repository.save(handledAggregate)
 ```
 
-## TLDR
+## TLDR;
 `let`, `with`, and `run` let you return the result of the code block. `also` and `apply` only return the mutated object.
 
 `with`, `run` and `apply` change the scope inside the code block, to that of the object. `also` and `let` require you to access the object via `it`.
